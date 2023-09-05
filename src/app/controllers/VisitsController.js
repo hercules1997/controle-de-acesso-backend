@@ -59,7 +59,7 @@ class VisitsControler {
         model,
         brand,
         color,
-        spat
+        spat,
       } = request.body
 
       const visit = await Visits.create({
@@ -76,7 +76,7 @@ class VisitsControler {
         model,
         brand,
         color,
-        spat
+        spat,
       })
 
       return response.json(visit)
@@ -85,19 +85,19 @@ class VisitsControler {
     }
   }
 
-  //  async index(request, response) {
-  //    const visits = await Visits.findAll({
-  //      include: [
-  //        {
-  //          model: Visits,
-  //          as: "visits",
-  //          attributes: ["id", "name"],
-  //        },
-  //      ],
-  //    })
+  async index(request, response) {
+    const visits = await Visits.findAll({
+      include: [
+        {
+          model: Visits,
+          as: "visits",
+          attributes: ["id", "name"],
+        },
+      ],
+    })
 
-  //    return response.json(visits)
-  //  }
+    return response.json(visits)
+  }
 
   async delete(request, response) {
     try {

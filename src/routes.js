@@ -32,7 +32,7 @@ AUTENTICAÇÃO COM JWT (TODAS AS ROTAS EMBAIXO DEPENDE DESSA AUTENTICAÇÃO)
 /*
 ROTAS DOS PRODUTOS
 */
-// routes.get("/visits", VisitsController.index)
+routes.get("/visits", VisitsController.index)
 routes.post("/visits", upload.single("file"), VisitsController.store)
 routes.put("/visits/:id", upload.single("file"), VisitsController.update)
 routes.delete("/visits/:id", upload.single("file"), VisitsController.delete)
