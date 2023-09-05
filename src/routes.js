@@ -1,7 +1,7 @@
 import { Router } from "express"
 import multer from "multer"
 import multerConfig from "./config/multer"
-// import authMiddleware from "./app/middlewares/auth"
+ import authMiddleware from "./app/middlewares/auth"
 
 import SessionController from "./app/controllers/SessionController"
 // import CategoryController from "./app/controllers/CategoryController"
@@ -27,7 +27,7 @@ routes.post("/sessions", SessionController.store)
 /*
 AUTENTICAÇÃO COM JWT (TODAS AS ROTAS EMBAIXO DEPENDE DESSA AUTENTICAÇÃO)
 */
-// routes.use(authMiddleware)
+ routes.use(authMiddleware)
 
 /*
 ROTAS DOS PRODUTOS

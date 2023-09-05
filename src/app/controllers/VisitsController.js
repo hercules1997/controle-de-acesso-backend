@@ -86,15 +86,16 @@ class VisitsControler {
   }
 
   async index(request, response) {
-    const visits = await Visits.findAll({
-      include: [
-        {
-          model: Visits,
-          as: "Visits",
-          attributes: ["id", "name"],
-        },
-      ],
+    const visits = await Visits.findAll({id
+      // include: [
+      //   {
+      //     model: Visits,
+      //     as: "visits",
+      //     attributes: ["id", "name"],
+      //   },
+      // ],
     })
+    console.log(visits)
 
     return response.json(visits)
   }
@@ -166,13 +167,13 @@ class VisitsControler {
           error: err.errors,
         })
       }
-      const { admin: isAdmin } = await User.findByPk(request.userId)
+      // const { admin: isAdmin } = await User.findByPk(request.userId)
 
-      if (!isAdmin) {
-        return response.status(401).json({
-          message: "Não autorizado",
-        })
-      }
+      // if (!isAdmin) {
+      //   return response.status(401).json({
+      //     message: "Não autorizado",
+      //   })
+      // }
 
       const { id } = request.params
 
