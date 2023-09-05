@@ -90,7 +90,7 @@ class VisitsControler {
       include: [
         {
           model: Visits,
-          as: "visits",
+          as: "Visits",
           attributes: ["id", "name"],
         },
       ],
