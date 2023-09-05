@@ -86,7 +86,7 @@ class VisitsControler {
   }
 
   async index(request, response) {
-    const visits = await Visits.findAll({id
+    const visits = await Visits.findAll({
       // include: [
       //   {
       //     model: Visits,
