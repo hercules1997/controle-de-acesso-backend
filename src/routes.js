@@ -17,6 +17,7 @@ const upload = multer(multerConfig)
 /*
 ROTA PARA CRIAÇÃO DE USUÁRIOS
 */
+routes.get("/users", UserController.store)
 routes.post("/users", UserController.store)
 
 /*

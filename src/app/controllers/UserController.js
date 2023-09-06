@@ -11,23 +11,20 @@ class UserController {
       admin: Yup.boolean(),
     })
 
-     if(!(await schema.isValid(request.body))){
-      return response.status(400).json({error: 'algo está errado'})
-     }
+    if (!(await schema.isValid(request.body))) {
+      return response.status(400).json({ error: "algo está errado" })
+    }
 
     try {
       await schema.validateSync(request.body, {
         abortEarly: false,
       })
-      
-
     } catch (err) {
       return response.status(400).json({
         error: err.errors,
       })
-     
     }
- 
+
     const { usuario, password, admin } = request.body
 
     const userExist = await User.findOne({
@@ -54,6 +51,16 @@ class UserController {
       usuario,
       admin,
     })
+  }
+
+  async index(request, response) {
+    try {
+      const users = await User.findAll()
+
+      return response.json(users)
+    } catch (error) {
+      console.log(err)
+    }
   }
 }
 
