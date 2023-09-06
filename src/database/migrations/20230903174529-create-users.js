@@ -13,6 +13,7 @@ module.exports = {
       usuario: {
         type: Sequelize.STRING,
         allowNull: false,
+        unique: true,
       },
 
       password_hash: {
