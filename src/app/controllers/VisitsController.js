@@ -44,7 +44,7 @@ class VisitsControler {
       //   })
       // }
 
-      // const { filename: path } = request.file
+       const { filename: path } = request.file
       const {
         name,
         rg,
@@ -77,6 +77,7 @@ class VisitsControler {
         brand,
         color,
         spat,
+        path,
       })
 
       return response.json(visit)
@@ -86,7 +87,6 @@ class VisitsControler {
   }
 
   async index(request, response) {
-
     try {
       const visits = await Visits.findAll()
 
@@ -108,18 +108,18 @@ class VisitsControler {
         zipcode: Sequelize.INTEGER,
         namemother: Sequelize.STRING,
         namefather: Sequelize.STRING,
-        // path: Sequelize.STRING,
         vehicle: Sequelize.BOOLEAN,
         model: Sequelize.STRING,
         brand: Sequelize.STRING,
         color: Sequelize.STRING,
         spat: Sequelize.INTEGER,
-        // url: {
-        //   type: Sequelize.VIRTUAL,
-        //   get() {
-        //     return `http://localhost:3007/visits-file/${this.path}`
-        //   },
-        // },
+        path: Sequelize.STRING,
+         url: {
+           type: Sequelize.VIRTUAL,
+           get() {
+             return `https://controle-de-acesso-backend-production.up.railway.app/visits-file/${this.path}`
+           },
+         },
       })
 
       const { id } = request.params
@@ -181,10 +181,10 @@ class VisitsControler {
         })
       }
 
-      // let path
-      // if (request.file) {
-      //   path = request.file.filename
-      // }
+      let path
+      if (request.file) {
+        path = request.file.filename
+      }
 
       const {
         name,
@@ -219,6 +219,7 @@ class VisitsControler {
           brand,
           color,
           spat,
+          path
         },
         {
           where: {

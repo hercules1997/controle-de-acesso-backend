@@ -8,9 +8,9 @@ import SessionController from "./app/controllers/SessionController"
 import UserController from "./app/controllers/UserController"
 // import OrderController from "./app/controllers/OrderController"
 import VisitsController from "./app/controllers/VisitsController"
-
-const upload = multer(multerConfig)
+import multerConfig from "./config/multer"
 const routes = new Router()
+const upload = multer(multerConfig)
 
 // routes.get("/visits", VisitsController.index)
 // routes.get("/categories", CategoryController.index)

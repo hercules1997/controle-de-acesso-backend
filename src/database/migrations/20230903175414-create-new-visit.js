@@ -45,10 +45,6 @@ module.exports = {
         type: Sequelize.STRING,
         allowNull: false,
       },
-      // path: {
-      //   type: Sequelize.STRING,
-      //   allowNull: false,
-      // },
       vehicle: {
         type: Sequelize.BOOLEAN,
         allowNull: false,
@@ -67,6 +63,10 @@ module.exports = {
       },
       spat: {
         type: Sequelize.INTEGER,
+        allowNull: false,
+      },
+      path: {
+        type: Sequelize.STRING,
         allowNull: false,
       },
       createdAt: {

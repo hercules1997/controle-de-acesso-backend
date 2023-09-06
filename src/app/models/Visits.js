@@ -13,18 +13,18 @@ class Visits extends Model {
         zipcode: Sequelize.INTEGER,
         namemother: Sequelize.STRING,
         namefather: Sequelize.STRING,
-        // path: Sequelize.STRING,
         vehicle: Sequelize.BOOLEAN,
         model: Sequelize.STRING,
         brand: Sequelize.STRING,
         color: Sequelize.STRING,
         spat: Sequelize.INTEGER,
-        // url: {
-        //   type: Sequelize.VIRTUAL,
-        //   get() {
-        //     return `http://localhost:3007/visits-file/${this.path}`
-        //   },
-        // },
+        path: Sequelize.STRING,
+        url: {
+          type: Sequelize.VIRTUAL,
+          get() {
+            return `https://controle-de-acesso-backend-production.up.railway.app/visits-file/${this.path}`
+          },
+        }, // Adicione o caminho da imagem aqui// Adicione o campo de imagem
       },
       {
         sequelize,
@@ -33,12 +33,6 @@ class Visits extends Model {
     return this
   }
 
-  //  static associate(models) {
-  //    this.belongsTo(models.Visits, {
-  //      foreignKey: "visit_id",
-  //      as: "visitis",
-  //    })
-  //  }
 }
 
 export default Visits
