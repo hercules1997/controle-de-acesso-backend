@@ -86,18 +86,14 @@ class VisitsControler {
   }
 
   async index(request, response) {
-    const visits = await Visits.findAll({
-      // include: [
-      //   {
-      //     model: Visits,
-      //     as: "visits",
-      //     attributes: ["id", "name"],
-      //   },
-      // ],
-    })
-    console.log(visits)
 
-    return response.json(visits)
+    try {
+      const visits = await Visits.findAll()
+
+      return response.json(visits)
+    } catch (error) {
+      console.log(err)
+    }
   }
 
   async delete(request, response) {
@@ -127,7 +123,7 @@ class VisitsControler {
       })
 
       const { id } = request.params
-      const visitsId = await Product.findByPk(id)
+      const visitsId = await Visits.findByPk(id)
       console.log(visitsId)
 
       people.destroy({ where: { id: visitsId.dataValues.id } })
