@@ -10,20 +10,20 @@ class VisitsControler {
   async store(request, response) {
     try {
       const schema = Yup.object().shape({
-        name: Yup.string().required(),
-        rg: Yup.number().required(),
-        cpf: Yup.number().required(),
-        phone: Yup.number().required(),
-        address: Yup.string().required(),
-        number: Yup.string().required(),
-        zipcode: Yup.number().required(),
-        namemother: Yup.string().required(),
-        namefather: Yup.string().required(),
+        name: Yup.string(),
+        rg: Yup.number(),
+        cpf: Yup.number(),
+        phone: Yup.number(),
+        address: Yup.string(),
+        number: Yup.string(),
+        zipcode: Yup.number(),
+        namemother: Yup.string(),
+        namefather: Yup.string(),
         vehicle: Yup.boolean(),
-        model: Yup.string().required(),
-        brand: Yup.string().required(),
-        color: Yup.string().required(),
-        spat: Yup.number().required(),
+        model: Yup.string(),
+        brand: Yup.string(),
+        color: Yup.string(),
+        spat: Yup.number(),
       })
 
       try {
