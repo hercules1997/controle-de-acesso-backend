@@ -28,7 +28,7 @@ class VisitsControler {
 
       try {
         await schema.validateSync(request.body, {
-          abortEarly: false,
+          abortEarly: true,
         })
       } catch (err) {
         return response.status(400).json({
