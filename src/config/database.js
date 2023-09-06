@@ -1,6 +1,6 @@
 module.exports = {
   dialect: "postgres",
-  url: "postgresql://postgres:tLvSwBPCrs2Zunmxghaz@containers-us-west-100.railway.app:8028/railway",
+  baseURL: "postgresql://postgres:tLvSwBPCrs2Zunmxghaz@containers-us-west-100.railway.app:8028/railway",
   // username: "postgres",
   // password: "pandora",
   // database: "bd-acesso",
