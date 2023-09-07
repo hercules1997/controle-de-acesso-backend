@@ -19,7 +19,7 @@ export default (request, response, next) => {
       }
 
       request.userId = decoded.id
-      request.userName = decoded.name
+      request.userName = decoded.usuario
 
       return next()
     })

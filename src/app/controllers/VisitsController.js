@@ -28,7 +28,7 @@ class VisitsControler {
 
       try {
         await schema.validateSync(request.body, {
-          abortEarly: true,
+          abortEarly: false,
         })
       } catch (err) {
         return response.status(400).json({
@@ -36,13 +36,13 @@ class VisitsControler {
         })
       }
 
-      // const { admin: isAdmin } = await User.findByPk(request.userId)
+       const { admin: isAdmin } = await User.findByPk(request.userId)
 
-      // if (!isAdmin) {
-      //   return response.status(401).json({
-      //     message: "Não autorizado",
-      //   })
-      // }
+       if (!isAdmin) {
+         return response.status(401).json({
+           message: "Não autorizado",
+         })
+       }
 
        const { filename: path } = request.file
       const {
