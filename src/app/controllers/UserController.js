@@ -6,8 +6,8 @@ import User from "../models/User"
 class UserController {
   async store(request, response) {
     const schema = Yup.object().shape({
-      usuario: Yup.string().required(),
-      password: Yup.string().required().min(6),
+      usuario: Yup.string(),
+      password: Yup.string(),
       admin: Yup.boolean(),
     })
 
