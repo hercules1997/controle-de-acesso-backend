@@ -80,7 +80,9 @@ class VisitsControler {
         path,
       })
 
-      return response.json(visit)
+       return   response.json(visit) && response.status(201).json({
+         message: "Alterado com sucesso!",
+       })
     } catch (err) {
       console.log(err)
     }
